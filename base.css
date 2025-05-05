@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+	--background: rgb(24, 24, 25);
+	--background-light: rgb(32, 32, 32);
+	--font: "Roboto", sans-serif;
+	--text: rgb(200, 200, 200);
+}
+
+body {
+	background-color: var(--background);
+	color: var(--text);
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+}
+
+/* Navbar */
+
+#navbar {
+	display: flex;
+	flex-wrap: wrap;
+	/* background-color: rgba(255, 255, 255, 0.1); */
+	margin: 1rem;
+	/* float: right; */
+	flex-grow: 1;
+	gap: 4px;
+}
+
+.nav-item {
+	display: block;
+	text-decoration: none;
+	padding: 0.8rem;
+	border: solid rgba(255, 255, 255, 0.0) 1px;
+	background-color: rgba(255, 255, 255, 0.0);
+	border-radius: 8px;
+	transition: 500ms;
+	color: inherit;
+}
+
+.nav-item:hover {
+	border: solid rgba(255, 255, 255, 0.1) 1px;
+	background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Cards */
+
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.cards:hover > .card::after {
+	opacity: 1;
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	height: 260px;
+	flex-direction: column;
+	position: relative;
+	width: 300px;
+	
+	filter: drop-shadow(rgba(0, 0, 0, 0.5) 0 4px 4px)
+  }
+  
+  .card:hover::before {
+	opacity: 1;
+  }
+  
+  .card::before,
+  .card::after {
+	border-radius: inherit;
+	content: "";
+	height: 100%;
+	left: 0px;
+	opacity: 0.0;
+	position: absolute;
+	top: 0px;
+	transition: opacity 500ms;
+	width: 100%;
+  }
+  
+  .card::before {
+	background: radial-gradient(
+	  400px circle at var(--mouse-x) var(--mouse-y), 
+	  rgba(150, 150, 255, 0.05),
+	  transparent 100%
+	);
+	z-index: 3;
+  }
+
+  .card::after {  
+	background: radial-gradient(
+	  500px circle at var(--mouse-x) var(--mouse-y), 
+	  rgba(150, 150, 255, 0.2),
+	  transparent 100%
+	);
+	z-index: 1;
+  }
+
+  .card > .card-content {
+	background-color: var(--background-light);
+	border-radius: inherit;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	inset: 1px;
+	padding: 10px;
+	position: absolute;
+	z-index: 2;
+  }

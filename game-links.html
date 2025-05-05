@@ -1,0 +1,46 @@
+<head>
+	<link rel="stylesheet" href="base.css">
+</head>
+
+<body>
+	<div id="navbar">
+		<a class="nav-item" href="./index.html">Home</a>
+		<a class="nav-item" href="./game-links.html">Piracy</a>
+	</div>
+
+	<div class="cards">
+		<div class="card">
+			<div class="card-content">
+				<p>Lorem Ipsum</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-content">
+				<p>Lorem Ipsum</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-content">
+				<p>Lorem Ipsum</p>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const cards = document.querySelectorAll(".card");
+	
+		document.querySelector(".cards").addEventListener("mousemove", e => {
+			const { clientX, clientY } = e;
+	
+			cards.forEach(card => {
+				const rect = card.getBoundingClientRect();
+				const x = clientX - rect.left;
+				const y = clientY - rect.top;
+	
+				card.style.setProperty("--mouse-x", `${x}px`);
+				card.style.setProperty("--mouse-y", `${y}px`);
+			});
+		});
+	</script>
+
+</body>
